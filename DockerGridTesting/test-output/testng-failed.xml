@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="2" guice-stage="DEVELOPMENT" name="Failed suite [Suite]" parallel="tests">
+  <parameter name="browser" value="firefox"/>
+  <test name="ChromeTest">
+    <parameter name="browser" value="chrome"/>
+    <classes>
+      <class name="MyTest.FirstTest"/>
+      <class name="MyTest.SecondTest"/>
+    </classes>
+  </test> <!-- ChromeTest -->
+  <test name="FirefoxTest">
+    <parameter name="browser" value="firefox"/>
+    <classes>
+      <class name="MyTest.FirstTest"/>
+      <class name="MyTest.SecondTest"/>
+    </classes>
+  </test> <!-- FirefoxTest -->
+  <test name="ChromeTest(failed)" parallel="tests">
+    <parameter name="browser" value="chrome"/>
+    <classes>
+      <class name="MyTest.SecondTest">
+        <methods>
+          <include name="tearDown"/>
+          <include name="tearDown"/>
+          <include name="terminate"/>
+          <include name="terminate"/>
+          <include name="setup"/>
+          <include name="setup"/>
+          <include name="myntraTest"/>
+        </methods>
+      </class> <!-- MyTest.SecondTest -->
+      <class name="MyTest.FirstTest">
+        <methods>
+          <include name="tearDown"/>
+          <include name="tearDown"/>
+          <include name="instagramTest"/>
+          <include name="terminate"/>
+          <include name="terminate"/>
+          <include name="setup"/>
+          <include name="setup"/>
+        </methods>
+      </class> <!-- MyTest.FirstTest -->
+    </classes>
+  </test> <!-- ChromeTest(failed) -->
+  <test name="FirefoxTest(failed)" parallel="tests">
+    <parameter name="browser" value="firefox"/>
+    <classes>
+      <class name="MyTest.SecondTest">
+        <methods>
+          <include name="tearDown"/>
+          <include name="tearDown"/>
+          <include name="terminate"/>
+          <include name="terminate"/>
+          <include name="setup"/>
+          <include name="setup"/>
+        </methods>
+      </class> <!-- MyTest.SecondTest -->
+      <class name="MyTest.FirstTest">
+        <methods>
+          <include name="tearDown"/>
+          <include name="tearDown"/>
+          <include name="instagramTest"/>
+          <include name="terminate"/>
+          <include name="terminate"/>
+          <include name="setup"/>
+          <include name="setup"/>
+        </methods>
+      </class> <!-- MyTest.FirstTest -->
+    </classes>
+  </test> <!-- FirefoxTest(failed) -->
+</suite> <!-- Failed suite [Suite] -->
